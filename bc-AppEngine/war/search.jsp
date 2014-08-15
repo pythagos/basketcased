@@ -19,53 +19,39 @@
 <%@ page import="com.google.appengine.api.datastore.Entity" %>
 <%@ page import="com.google.appengine.api.datastore.FetchOptions" %>
 
-<t:genericpage><jsp:body><script type="text/javascript" src="js/search.js"></script><script src="js/jquery.viewport.js" type="text/javascript">
-   </script>
-		<section class="grid-wrap">
- <div class="grid col-one-third mq2-col-full"><form id="my_form">
-            <div id="main" style="display:inline-block;">
-                <label for="query">Query</label>
-                <input id="query" name="query" type="text" size="30" placeholder="${query}"/><br /><br />
-                <p >
-                    <a href="#" class="button" id="bt_search">Search</a>
-                    <a href="#" class="button" id="bt_clear" >Clear</a>
-                    <a href="#" class="button" id="bt_graball" >Grab</a>
-                </p>
-                
-                <div>
-                    <small>Search Type</small><br />
-                    <input name="service_op" type="radio" value="image" CHECKED /> Image
-                    <input name="service_op" type="radio" value="video" /> Video
-                    <input name="service_op" type="radio" value="web" /> Web
-                </div>
-<!--                 <div>
-                    <small>Filter</small><br />
-                    <input name="safesearch" type="radio" value="safe=off" CHECKED /> Off
-                    <input name="safesearch" type="radio" value="safe=moderate" /> Moderate
-                    <input name="safesearch" type="radio" value="safe=active" /> Active
-                </div>
- -->                
-                
-            <div id="Parameters" style="display:inline-block; vertical-align: top;">
-                <div id="ImageParameters">
-                        <small>Size</small><br />
-                        <input name="imagesize" type="radio" value="icon" /> Icon
-                        <input name="imagesize" type="radio" value="small" /> Small
-                        <input name="imagesize" type="radio" value="medium|large" /> Medium<br />
-                        <input name="imagesize" type="radio" value="xxlarge|xlarge" CHECKED /> Large
-                        <input name="imagesize" type="radio" value="huge" /> Huge
-                        <input name="imagesize" type="radio" value="" /> All
-                </div>
-                <div id="WebParameters"></div>
-                <div id="VideoParameters"></div>
-                <br />
-            </div></div>
-            <div id='querydetails'></div><!-- <div><input id="bt_crawl" name="bt_crawl" type="submit" value="Crawl" /></div> -->
-            <input type="hidden" id="userIp" name="userIp" value="${userIp}" />
-            
-        </form>
+<t:genericpage><jsp:body>
+	<script type="text/javascript" src="/js/search.js"></script>
+	<script src="/js/jquery.viewport.js" type="text/javascript"></script>
+	
+<section class="grid-wrap">
+	<div class="grid col-one-third mq2-col-full">
+		<form id="my_form">
+          <div id="main" style="display:inline-block;">
+        <label for="query">Query</label>
+        <input id="query" name="query" type="text" size="30" placeholder="${query}" onclick="search()" /><br /><br />
         
- <br />
+    	<p >
+            <a href="#" class="button" id="bt_search">Search</a>
+            <a href="#" class="button" id="bt_clear" >Clear</a>
+            <a href="#" class="button" id="bt_graball" >Grab</a>
+        </p>
+        
+        <div>
+            <small>Search Type</small><br />
+            <input name="service_op" type="radio" value="image" CHECKED /> Image
+            <input name="service_op" type="radio" value="video" /> Video
+            <input name="service_op" type="radio" value="web" /> Web
+        </div>
+        <div id="Parameters" style="display:inline-block; vertical-align: top;">
+	        <div id="ImageParameters"><small>Size</small><br /><select id="imagesize"><option value="icon"> Icon </option><option value="small"> Small </option><option value="medium|large"> Medium </option><option value="xxlarge|xlarge" selected>Large </option><option value="huge"> Huge </option><option value=""> All </option></select></div>
+	        <div id="WebParameters"></div>
+	        <div id="VideoParameters"></div>
+    	</div>
+    </div>
+    <div id='querydetails'></div><!-- <div><input id="bt_crawl" name="bt_crawl" type="submit" value="Crawl" /></div> -->
+    <input type="hidden" id="userIp" name="userIp" value="${userIp}" />
+</form>
+<br />
     
 </div><div class="grid col-two-thirds mq2-col-full">
 <article id="navtabs">
@@ -82,16 +68,7 @@
 	    </article>
     </div>
 </article>
-
 </div>
 </section>
-
-
 </jsp:body>
 </t:genericpage>
-            
-            
-            
-            
-            
-            

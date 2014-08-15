@@ -87,6 +87,48 @@ $(function () {
     	$('#navtabs').show();
     	$('#resultsImage > a').removeClass('lastResult');
     	
+    	$.getJSON('search/web', data, function(result){
+    		if (result) {
+        		var results = result.responseData.results;
+        		$.each(results, function(i, field){showWebResult(field);});
+        		setTimeout(function (){$('#resultsWeb > a:last-child').addClass('lastResult');}, 500);
+    		} else {
+    			// display error message or repeat
+//    			setTimeout(function(){if ($('#query').val()) {search();}}, 2000);
+    		}
+    	});
+
+    	$.getJSON('search/image', data, function(result){
+    		if (result) {
+        		var results = result.responseData.results;
+        		globalIndex += results.length;
+        		$.each(results, function(i, field){showImageResult(field);});
+        		setTimeout(function (){$('#resultsImage > a:last-child').addClass('lastResult');}, 500);
+    		} else {
+    			// display error message or repeat
+//    			setTimeout(function(){if ($('#query').val()) {search();}}, 2000);
+    		}
+    	});
+
+    	$.getJSON('search/video', data, function(result){
+    		if (result) {
+        		var results = result.responseData.results;
+        		$.each(results, function(i, field){showVideoResult(field);});
+        		setTimeout(function (){$('#resultsVideo > a:last-child').addClass('lastResult');}, 500);
+    		} else {
+    			// display error message or repeat
+//    			setTimeout(function(){if ($('#query').val()) {search();}}, 2000);
+    		}
+    	});
+    }
+
+    function searchBAK() {
+    	var data = getQueryData();
+    	var service = $('input[name=service_op]:checked', '#my_form').val();
+
+    	$('#navtabs').show();
+    	$('#resultsImage > a').removeClass('lastResult');
+    	
     	$.getJSON('search/' + service, getQueryData(), function(result){
     		if (result) {
         		var results = result.responseData.results;
@@ -175,7 +217,7 @@ $(function () {
 
     function getImageFilter() {
         var imageFilter = undefined;
-        var imageSize = $('input[name=imagesize]:checked', '#my_form').val();
+        var imageSize = $('#imagesize option:selected', '#my_form').val();
         var imageAspect = $('input[name=imageaspect]:checked', '#my_form').val();
 
         if (imageSize == "Size:All")
@@ -250,7 +292,7 @@ $(function () {
             $('#WebParameters').hide();
             $('#VideoParameters').hide();
 
-            var imageSize = $('input[name=imagesize]:checked', '#my_form').val();
+            var imageSize = $('#imagesize option:selected', '#my_form').val();
             var imageAspect = $('input[name=imageaspect]:checked', '#my_form').val();
             detail = "Search for <b>" + serviceOp + "</b> related to \"<b>" + query + "</b>\"<br /><p>Content Filtering Set To <b>" + safeSearch + "</b><br />" + imageSize + "<br />" + imageAspect + "</p>";
 

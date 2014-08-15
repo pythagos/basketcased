@@ -6,12 +6,12 @@
         </header>
     
             <figure class="grid col-one-quarter mq2-col-one-half">
-                <a href="#">
+                <a href="/search.jsp">
                 <img src="img/search.jpg" alt="">
                 <span class="zoom"></span>
                 </a>
                 <figcaption>
-                    <a href="#" class="arrow">Search Engine</a>
+                    <a href="/search.jsp" class="arrow">Search Engine</a>
                     <p>Web Services, PHP, and jQuery</p>
                 </figcaption>
             </figure>

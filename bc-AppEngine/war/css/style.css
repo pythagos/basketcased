@@ -69,7 +69,9 @@ table{border-collapse:collapse; border-spacing:0}
 td{vertical-align:top}
 .chromeframe { margin: 1em 0; background: red; color: black; padding: 1em; }
 
-
+#imagesize {
+	width: 12em;
+}
 /* -------------------------------------------------------------
 ======	STYLES
 ------------------------------------------------------------- */

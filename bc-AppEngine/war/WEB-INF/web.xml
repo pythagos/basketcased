@@ -40,7 +40,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>searchWeb</servlet-name>
-		<servlet-class>com.bc.search.endpoints.SearchServlet</servlet-class>
+		<servlet-class>com.bc.search.endpoints.SearchWebServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>searchWeb</servlet-name>
