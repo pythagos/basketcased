@@ -1,0 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%com.google.appengine.api.users.UserService userService = com.google.appengine.api.users.UserServiceFactory.getUserService();
+request.setAttribute("loginUri", userService.createLoginURL(request.getRequestURI()));
+request.setAttribute("logoutUri", userService.createLogoutURL(request.getRequestURI()));%>
+<header id="navtop"><a href="index.jsp" class="logo fleft"><img src="img/logo.png" alt="BasketCase Inc."></a><nav class="fright">
+<ul><li><a href="index.jsp" class="navactive">Home</a></li><c:choose><c:when test="${user != null}"><li><a href="${logoutUri}">Logout</a></li></c:when><c:otherwise><li><a href="${loginUri}">Sign In</a></li></c:otherwise></c:choose></ul>
+<ul><li><a href="works.html">Works</a></li><li><a href="blog.html">Blog</a></li></ul>
+<ul><li><a href="contact.html">Contact</a></li><li><a href="about.html">About</a></li><c:if test="${user != null}"><li><a href="${logoutUri}">Log out</a></li></c:if></ul>
+</nav></header>

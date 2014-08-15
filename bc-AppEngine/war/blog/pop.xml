@@ -1,0 +1,22 @@
+<blog>
+	<div class="widget">
+		<h2>Popular Posts</h2>
+		<ul>
+			<li>
+				<a href="#" title="">Nullam porttitor elementum ligula</a>
+			</li>
+			<li>
+				<a href="#" title="">Vestibulum interdum</a>
+			</li>
+			<li>
+				<a href="#" title="">Quisque venenatis ante sit amet dolor</a>
+			</li>
+			<li>
+				<a href="#" title="">Aliquam adipiscing libero vitae leo</a>
+			</li>
+			<li>
+				<a href="#" title="">Sed accumsan quam ac tellus</a>
+			</li>
+		</ul>
+	</div>
+</blog>

@@ -1,0 +1,42 @@
+{
+    "intro":"This is my intro text.",
+    "categories":
+    [
+        { 
+          "category": "Art",
+          "count": "217"
+        },{ 
+          "category": "Science",
+          "count": "35"
+        },{ 
+          "category": "Technology",
+          "count": "21"
+        },{ 
+          "category": "Social",
+          "count": "17"
+        },{ 
+          "category": "Other",
+          "count": "33"
+        }
+    ],
+    "popular":
+    [
+        { 
+          "title": "Nullam porttitor elementum ligula",
+          "href": "#"
+        },{ 
+          "title": "Vestibulum interdum",
+          "href": "#"
+        },{ 
+          "title": "Quisque venenatis ante sit amet dolor",
+          "href": "#"
+        },{ 
+          "title": "Aliquam adipiscing libero vitae leo",
+          "href": "#"
+        },{ 
+          "title": "Sed accumsan quam ac tellus",
+          "href": "#"
+        }
+    ]
+    
+}

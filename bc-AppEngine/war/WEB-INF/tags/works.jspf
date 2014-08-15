@@ -1,0 +1,51 @@
+<section class="works grid-wrap">
+    <header class="grid col-full">
+            <hr>
+            <p class="fleft">Works</p>
+            <a href="works.html" class="arrow fright">see more of my projects</a>
+        </header>
+    
+            <figure class="grid col-one-quarter mq2-col-one-half">
+                <a href="#">
+                <img src="img/search.jpg" alt="">
+                <span class="zoom"></span>
+                </a>
+                <figcaption>
+                    <a href="#" class="arrow">Search Engine</a>
+                    <p>Web Services, PHP, and jQuery</p>
+                </figcaption>
+            </figure>
+        
+            <figure class="grid col-one-quarter mq2-col-one-half">
+                <a href="#">
+                <img src="img/sports.jpg" alt="">
+                <span class="zoom"></span>
+                </a>
+                <figcaption>
+                    <a href="#" class="arrow">Sports Modelling</a>
+                    <p>Data Mining and Adv Deviation calcs</p>
+                </figcaption>
+            </figure>
+        
+            <figure class="grid col-one-quarter mq2-col-one-half">
+                <a href="work1.html">
+                <img src="img/psl.jpg" alt="">
+                <span class="zoom"></span>
+                </a>
+                <figcaption>
+                    <a href="work1.html" class="arrow">Caffeine Calculator</a>
+                    <p>jQuery and Html5</p>
+                </figcaption>
+            </figure>
+
+            <figure class="grid col-one-quarter mq2-col-one-half">
+                <a href="#">
+                <img src="img/bcase350.jpg" alt="">
+                <span class="zoom"></span>
+                </a>
+                <figcaption>
+                    <a href="#" class="arrow">Project BC</a>
+                    <p>To be continued...</p>
+                </figcaption>
+            </figure>
+    </section>
