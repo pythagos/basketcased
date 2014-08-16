@@ -22,7 +22,13 @@
 <t:genericpage><jsp:body>
 	<script type="text/javascript" src="/js/search.js"></script>
 	<script src="/js/jquery.viewport.js" type="text/javascript"></script>
-	
+
+
+<link rel="stylesheet" type="text/css" media="all" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/css/jgallery.min.css?v=1.3.2" />
+    <script type="text/javascript" src="/js/tinycolor-0.9.16.min.js"></script>
+    <script type="text/javascript" src="/js/jgallery.min.js?v=1.3.2"></script>
+    	
 <section class="grid-wrap">
 	<div class="grid col-one-third mq2-col-full">
 		<form id="my_form">
@@ -53,7 +59,18 @@
 </form>
 <br />
     
-</div><div class="grid col-two-thirds mq2-col-full">
+</div>
+</section>
+<section>
+<div id="gallery">
+	<div class="album" data-jgallery-album-title="Album 1">
+		<h1>Album 1</h1>
+		<div id="resultsImage" ><a href="img/psl.jpg"><img src="img/psl.jpg" alt="BasketCase"  data-jgallery-bg-color="#3e3e3e" data-jgallery-text-color="#fff" /></a>
+		</div><!-- more albums -->
+	</div><!-- more images -->
+</div>
+</section>
+<section class="grid-wrap">
 <article id="navtabs">
     <ul class="tabs clearfix"><li><a href="#tab1">Web</a></li><li><a href="#tab2">Image</a></li><li><a href="#tab3">Video</a></li></ul>
     <div class="tab_container">
@@ -61,7 +78,9 @@
 	        <ul class="blocks blocks-four-up thumbs thumbs_popover"><li><section id="resultsWeb" ></section></li></ul>
 	    </article>
 	    <article id="tab2" class="tab_content">
-	        <ul class="blocks blocks-three-up section_blocks"><li><section id="resultsImage" ></section></li></ul>
+	        <ul class="blocks blocks-three-up section_blocks"><li>
+	        </li>
+	        </ul>
 	    </article>
 	    <article id="tab3" class="tab_content">
 	        <ul class="blocks blocks-three-up section_blocks"><li><section id="resultsVideo" ></section></li></ul>

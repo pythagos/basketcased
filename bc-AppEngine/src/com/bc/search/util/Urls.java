@@ -8,7 +8,7 @@ public class Urls {
 
 	
 	public static final String URI_JSON_WEB = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=8";
-	public static final String URI_JSON_IMAGE = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&rsz=8";
+	public static final String URI_JSON_IMAGE = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&rsz=8&tbs=iar:w";
 	public static final String URI_JSON_VIDEO = "https://ajax.googleapis.com/ajax/services/search/video?v=1.0&rsz=8&tbm=vid";
 
 	public static final String URI_PARAM_SEP = "&";

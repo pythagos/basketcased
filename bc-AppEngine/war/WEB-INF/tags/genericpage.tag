@@ -40,14 +40,8 @@
 				src="img/logo.png" alt="BasketCase Inc."></a>
 			<nav class="fright">
 				<ul>
-					<li><a href="index.jsp">Home</a></li>
-                    <li><a href="blogs.jsp">Blog</a></li>
                     <li><a href="works.jsp">Projects</a></li>
-				</ul>
-				<ul>
-					<li><a href="search.jsp">Search</a></li>
-                    <li><a href="blogs.jsp">Project BC</a></li>
-                    <li><a href="guest.jsp">Guest book</a></li>
+                    <li><a href="blogs.jsp">Blog</a></li>
 				</ul>
 				<ul>
 					<li><a href="guest.jsp">Contact</a></li>
@@ -56,7 +50,7 @@
                             <li><a href="account.jsp">${user.nickname}</a></li><li><a href="${logoutUri}">Logout</a></li>
                         </c:when>
                         <c:otherwise>
-                            <li><a href="${loginUri}">Sign In</a></li><li><a href="account.jsp?mode=create">Create Account</a></li>
+                            <li><a href="${loginUri}">Sign In</a></li>
                         </c:otherwise>
                     </c:choose>
 					<li><a href="guest.jsp">About</a></li>

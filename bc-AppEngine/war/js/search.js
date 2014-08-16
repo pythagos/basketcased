@@ -3,6 +3,8 @@ $(function () {
     window.globalIndex = 0;
     window.lastTop = 0;
 
+    window.isSearching = -1;
+
     // initial config of ui elements
     $('#bt_graball').hide();
     $('#ImageParameters').show(5000);
@@ -69,7 +71,7 @@ $(function () {
     // Event handler for changes by the user
     $('input', '#my_form').change(function () { updateUI(); });
     $(window).scroll(function() {
-    	if ($(window).scrollTop() > lastTop) {
+    	if (($(window).scrollTop() > lastTop) && (isSearching < 0)) {
         	if ($('.lastResult') && $('.lastResult').length > 0) {
     			var offset = $('.lastResult').offset();
         		if ( ($(window).scrollTop() + window.innerHeight) > offset.top){
@@ -80,7 +82,78 @@ $(function () {
     	lastTop = $(window).scrollTop();
     });
 
+    function displayGallery() {
+    	$( '#gallery' ).jGallery( {
+            mode: 'full-screen', // [ full-screen, standard, slider ]
+            width: '100%', // (only for standard or slider mode)
+            height: '900px', // (only for standard or slider mode)
+            autostart: false, // (only for full-screen mode)
+            autostartAtImage: 1,
+            autostartAtAlbum: 1,
+            canClose: true, // (only for full-screen mode)
+            canResize: true,
+            draggableZoom: true,
+            canChangeMode: false,
+            backgroundColor: '#000',
+            textColor: '#fff',
+            browserHistory: true,
+            thumbnails: true,
+            thumbnailsFullScreen: true,
+            thumbType: 'image', // [ image | square | number ]
+            thumbnailsPosition: 'bottom', // [ top | bottom | left | right ]
+            reloadThumbnails: true, //Reload thumbnails when function jGallery() is called again for the same item
+            thumbWidth: 100, //px
+            thumbHeight: 100, //px
+            thumbWidthOnFullScreen: 100, //px
+            thumbHeightOnFullScreen: 100, //px
+            canMinimalizeThumbnails: true,
+            hideThumbnailsOnInit: false,
+            transition: 'moveToRight_moveFromLeft', // http://jgallery.jakubkowalczyk.pl/customize
+            transitionBackward: 'moveToLeft_moveFromRight', // http://jgallery.jakubkowalczyk.pl/customize
+            transitionWaveDirection: 'forward', // [ forward | backward ]
+            transitionCols: 1,
+            transitionRows: 5,
+            showTimingFunction: 'linear', // [ linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n) ]
+            hideTimingFunction: 'linear', // [ linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n) ]
+            transitionDuration: '0.7s',
+            zoomSize: 'fit', // [ fit | original | fill ] (only for full-screen or standard mode)
+            title: true,
+            slideshow: true,
+            slideshowAutostart: false,
+            slideshowCanRandom: true,
+            slideshowRandom: false,
+            slideshowRandomAutostart: false,
+            slideshowInterval: '8s',
+            preloadAll: false,
+            appendTo: 'body', // selector (only for full-screen mode)
+            disabledOnIE8AndOlder: true,
+            initGallery: function() {},
+            showPhoto: function() {},
+            beforeLoadPhoto: function() {},
+            afterLoadPhoto: function() {},
+            showGallery: function() {},
+            closeGallery: function() {}
+        } );
+
+//$( "#gallery" ).jGallery( {
+//            "transition":"moveToRight_moveFromLeft",
+//            "transitionBackward":"moveToLeft_moveFromRight",
+//            "transitionCols":"1",
+//            "transitionRows":"5",
+//            "thumbnailsPosition":"bottom",
+//            "thumbType":"image",
+//            "backgroundColor":"#000",
+//            "textColor":"#fff",
+//            "mode":"standard"
+//        } );
+    }
+
     function search() {
+    	if (isSearching > 0) {
+    		return;
+    	}
+    	
+		isSearching = 1;
     	var data = getQueryData();
     	var service = $('input[name=service_op]:checked', '#my_form').val();
 
@@ -88,38 +161,30 @@ $(function () {
     	$('#resultsImage > a').removeClass('lastResult');
     	
     	$.getJSON('search/web', data, function(result){
-    		if (result) {
+    		if (result && result.responseData) {
         		var results = result.responseData.results;
         		$.each(results, function(i, field){showWebResult(field);});
         		setTimeout(function (){$('#resultsWeb > a:last-child').addClass('lastResult');}, 500);
-    		} else {
-    			// display error message or repeat
-//    			setTimeout(function(){if ($('#query').val()) {search();}}, 2000);
     		}
     	});
 
     	$.getJSON('search/image', data, function(result){
-    		if (result) {
+    		if (result && result.responseData) {
         		var results = result.responseData.results;
         		globalIndex += results.length;
         		$.each(results, function(i, field){showImageResult(field);});
-        		setTimeout(function (){$('#resultsImage > a:last-child').addClass('lastResult');}, 500);
-    		} else {
-    			// display error message or repeat
-//    			setTimeout(function(){if ($('#query').val()) {search();}}, 2000);
+        		setTimeout(function (){$('#resultsImage > a:last-child').addClass('lastResult');displayGallery();}, 500);
     		}
     	});
 
     	$.getJSON('search/video', data, function(result){
-    		if (result) {
+    		if (result && result.responseData) {
         		var results = result.responseData.results;
         		$.each(results, function(i, field){showVideoResult(field);});
         		setTimeout(function (){$('#resultsVideo > a:last-child').addClass('lastResult');}, 500);
-    		} else {
-    			// display error message or repeat
-//    			setTimeout(function(){if ($('#query').val()) {search();}}, 2000);
     		}
     	});
+    	setTimeout(function (){isSearching = -1;}, 3000);
     }
 
     function searchBAK() {
@@ -209,6 +274,16 @@ $(function () {
         a.download = getFilename(item.url);
         var i = document.createElement('img');
         i.src = item.tbUrl;
+        
+        var att=document.createAttribute("data-jgallery-bg-color");
+        att.value="#3e3e3e";
+        i.setAttributeNode(att);
+        
+        var at2=document.createAttribute("data-jgallery-text-color");
+        at2.value="#fff";
+        i.setAttributeNode(at2);
+        
+        
         // Make the object that the user clicks the thumbnail image.
         $(a).append(i);
         // Append the anchor tag and paragraph with the title to the results div.
