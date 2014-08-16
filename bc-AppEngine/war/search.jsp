@@ -65,7 +65,7 @@
 <div id="gallery">
 	<div class="album" data-jgallery-album-title="Album 1">
 		<h1>Album 1</h1>
-		<div id="resultsImage" ><a href="img/psl.jpg"><img src="img/psl.jpg" alt="BasketCase"  data-jgallery-bg-color="#3e3e3e" data-jgallery-text-color="#fff" /></a>
+		<div id="resultsImage" ><a href="img/psl.jpg"><img src="img/psl.jpg" alt="BasketCase" /></a>
 		</div><!-- more albums -->
 	</div><!-- more images -->
 </div>

@@ -84,9 +84,9 @@ $(function () {
 
     function displayGallery() {
     	$( '#gallery' ).jGallery( {
-            mode: 'full-screen', // [ full-screen, standard, slider ]
+            mode: 'standard', // [ full-screen, standard, slider ]
             width: '100%', // (only for standard or slider mode)
-            height: '900px', // (only for standard or slider mode)
+            height: '750px', // (only for standard or slider mode)
             autostart: false, // (only for full-screen mode)
             autostartAtImage: 1,
             autostartAtAlbum: 1,
@@ -94,9 +94,9 @@ $(function () {
             canResize: true,
             draggableZoom: true,
             canChangeMode: false,
-            backgroundColor: '#000',
-            textColor: '#fff',
-            browserHistory: true,
+            backgroundColor: '#dfdfdf',
+            textColor: '#787878',
+            browserHistory: false,
             thumbnails: true,
             thumbnailsFullScreen: true,
             thumbType: 'image', // [ image | square | number ]
@@ -107,7 +107,7 @@ $(function () {
             thumbWidthOnFullScreen: 100, //px
             thumbHeightOnFullScreen: 100, //px
             canMinimalizeThumbnails: true,
-            hideThumbnailsOnInit: false,
+            hideThumbnailsOnInit: true,
             transition: 'moveToRight_moveFromLeft', // http://jgallery.jakubkowalczyk.pl/customize
             transitionBackward: 'moveToLeft_moveFromRight', // http://jgallery.jakubkowalczyk.pl/customize
             transitionWaveDirection: 'forward', // [ forward | backward ]
@@ -115,7 +115,7 @@ $(function () {
             transitionRows: 5,
             showTimingFunction: 'linear', // [ linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n) ]
             hideTimingFunction: 'linear', // [ linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n) ]
-            transitionDuration: '0.7s',
+            transitionDuration: '0.4s',
             zoomSize: 'fit', // [ fit | original | fill ] (only for full-screen or standard mode)
             title: true,
             slideshow: true,
@@ -276,11 +276,11 @@ $(function () {
         i.src = item.tbUrl;
         
         var att=document.createAttribute("data-jgallery-bg-color");
-        att.value="#3e3e3e";
+        att.value="#DFDFDF";
         i.setAttributeNode(att);
         
         var at2=document.createAttribute("data-jgallery-text-color");
-        at2.value="#fff";
+        at2.value="#787878";
         i.setAttributeNode(at2);
         
         
