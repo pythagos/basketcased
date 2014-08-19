@@ -33,25 +33,16 @@
 	<div class="grid col-one-third mq2-col-full">
 		<form id="my_form">
           <div id="main" style="display:inline-block;">
-        <label for="query">Query</label>
-        <input id="query" name="query" type="text" size="30" placeholder="${query}" onclick="search()" /><br /><br />
-        
-    	<p >
+        <input id="query" name="query" type="text" size="30" placeholder="${query}" onclick="search()" />
             <a href="#" class="button" id="bt_search">Search</a>
-            <a href="#" class="button" id="bt_clear" >Clear</a>
             <a href="#" class="button" id="bt_graball" >Grab</a>
-        </p>
         
-        <div>
-            <small>Search Type</small><br />
-            <input name="service_op" type="radio" value="image" CHECKED /> Image
-            <input name="service_op" type="radio" value="video" /> Video
-            <input name="service_op" type="radio" value="web" /> Web
-        </div>
         <div id="Parameters" style="display:inline-block; vertical-align: top;">
-	        <div id="ImageParameters"><small>Size</small><br /><select id="imagesize"><option value="icon"> Icon </option><option value="small"> Small </option><option value="medium|large"> Medium </option><option value="xxlarge|xlarge" selected>Large </option><option value="huge"> Huge </option><option value=""> All </option></select></div>
-	        <div id="WebParameters"></div>
-	        <div id="VideoParameters"></div>
+	        <div id="ImageParameters">
+	        	<select id="imagesize">
+	        		<option value="icon"> Icon </option><option value="small"> Small </option><option value="medium|large"> Medium </option><option value="xxlarge|xlarge" selected>Large </option><option value="huge"> Huge </option><option value=""> All </option>
+        		</select>
+        	</div>
     	</div>
     </div>
     <div id='querydetails'></div><!-- <div><input id="bt_crawl" name="bt_crawl" type="submit" value="Crawl" /></div> -->
